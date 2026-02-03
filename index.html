@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>jinakiss</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg-pink:#ffd1e8;
+}
+
+*{ box-sizing:border-box; }
+
+/* ===== UL/LIST スマホ対応 ===== */
+.content ul {
+  padding-left: 20px;     
+  margin: 10px 0;          
+  list-style-position: inside;
+}
+
+.content ul li {
+  word-break: break-word;  
+  margin-bottom: 6px;      
+  line-height: 1.6;    
+}
+
+/* スマホ画面で文字や余白を調整 */
+@media(max-width:480px){
+  .content ul {
+    padding-left: 16px;
+  }
+  .content ul li {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+}
+
+/* ===== BODY ===== */
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:var(--bg-pink);
+  font-family:'Baloo 2', cursive;
+  padding:40px 0;
+}
+
+/* ===== FRAME ===== */
+.tv{
+  width:95%;
+  max-width:1400px;
+  min-width:320px;
+  padding:22px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#ff9ad5 0%,#c3a6ff 50%,#9ee7ff 100%);
+  border:6px solid #fff6;
+  box-shadow:
+    0 25px 60px rgba(255,150,220,.7),
+    inset 0 4px 6px rgba(255,255,255,.5);
+  position:relative;
+  overflow:hidden;
+  margin:20px 0;
+}
+
+/* ===== SCREEN ===== */
+.screen{
+  background:linear-gradient(180deg,#eaffff,#bfefff);
+  border-radius:28px;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  height:140vh;             
+  box-shadow: inset 0 4px 10px rgba(255,255,255,.4);
+}
+
+/* ===== LOGO ===== */
+.logo{
+  display:flex;
+  justify-content:center;
+  margin-bottom:12px;
+  background:rgba(255,255,255,.25);
+  backdrop-filter:blur(10px);
+  border-radius:22px;
+  padding:12px;
+}
+
+.logo img{
+  max-width:80%;
+  height:auto;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{ transform:translateY(0);}
+  50%{ transform:translateY(-6px);}
+}
+
+/* ===== TAB BUTTONS ===== */
+.tabs{
+  display:flex;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.tabs button{
+  flex:1;
+  border:none;
+  padding:10px 0;
+  border-radius:16px;
+  font-family:'Baloo 2', cursive;
+  cursor:pointer;
+  background:linear-gradient(135deg,#fff,#ffd1ec,#ccecff);
+  box-shadow:0 6px 0 #c08cff;
+  transition:.1s;
+}
+
+.tabs button:active{
+  transform:translateY(6px);
+  box-shadow:0 0 0 #c08cff;
+}
+
+.tabs button.active{
+  filter:brightness(1.05);
+}
+
+/* ===== CONTENT ===== */
+.content{
+  flex:1;
+  min-height:0;              
+  background:rgba(255,255,255,.35);
+  border-radius:22px;
+  padding:20px;
+  box-shadow: inset 0 0 18px rgba(255,255,255,.6);
+  font-size:14px;
+  overflow-y:auto;            
+  margin:16px -6px 0 -6px;
+}
+
+/* 装飾 */
+.content::-webkit-scrollbar{
+  width:8px;
+}
+.content::-webkit-scrollbar-thumb{
+  background:#ff9ad5;
+  border-radius:10px;
+}
+.content::-webkit-scrollbar-track{
+  background:rgba(255,255,255,.3);
+}
+
+/* ===== SECTION ===== */
+.section{
+  display:none;
+  color:#6b3e26;
+  text-align:center;
+  line-height:1.7;
+}
+
+.section.active{
+  display:block;
+}
+
+/* ===== GAME BUTTON ===== */
+.game-area{
+  margin-top:14px;
+  padding:12px;
+  border-radius:20px;
+  background:rgba(255,255,255,.25);
+  text-align:center;
+}
+
+.game-area a{
+  display:inline-block;
+  text-decoration:none;
+  color:#000;
+  padding:10px 22px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ff9ad5,#c3a6ff,#9ee7ff);
+  box-shadow:0 6px 0 #b47cff;
+  transition:.1s;
+}
+
+.game-area a:active{
+  transform:translateY(6px);
+  box-shadow:0 0 0 #b47cff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  body{ padding:50px 0; }
+  .screen{ height:80vh; }
+}
+
+@media(max-width:480px){
+  body{ padding:60px 0; }
+  .screen{ height:70vh; }
+  .logo img{ max-width:75%; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="tv">
+  <div class="screen">
+
+    <div class="logo">
+      <img src="images/logo.jpg" alt="logo">
+    </div>
+
+    <div class="tabs">
+      <button class="active" onclick="showTab('about',this)">概要</button>
+      <button onclick="showTab('qa',this)">Q&amp;A</button>
+      <button onclick="showTab('project',this)">参加・お問い合わせ</button>
+    </div>
+
+    <div class="content">
+
+      <div id="about" class="section active">
+        <br>
+        <br>
+         <br>
+　　　<strong>💙当企画は佐賀美陣×椚章非公式Webオンリーイベントです💜</strong>
+<br>
+        <br>
+    ・陣章の二次創作作品の頒布・展示(イラスト、漫画、小説、ハンドメイド等)<br>
+・エアスケブ<br>
+・無償ダウンロード素材配布<br>
+<br>
+※サークル参加をご希望の方は下記の注意事項を必ずご一読ください。<br>
+<br>
+<br>
+<br>
+<br>
+<strong>【サークル参加について】</strong><br>
+・公式の二次創作ガイドラインに基づき、ネットプリントを含む受注方式での頒布を一切禁止いたします。
+<br>また、グッズを頒布する際は必ずBOOTH等の自家通販のサイトをご利用ください。<br>
+<br>
+・委託参加は禁止いたします。当日不在でもサークル参加は可能なため、必ずご本人様が個人でお申込みください。
+<br>なお、合同作品を頒布する場合に限り、合同サークルとして複数名でのサークル参加が可能です。<br>
+<br>
+・AI生成作品は一切禁止いたします。必ずご自身の手で作成された作品を一点以上ご用意ください。<br>
+<br>
+・トレースや参考が許可されている作品以外の、他者の作品をトレース・模写等した作品の頒布・展示は禁止いたします。<br>
+<br>
+・有償ダウンロード形式での頒布、また、公式画像・ロゴ等を転載または利用したと思われる作品の頒布・展示は禁止いたします。
+<br>また、公式グッズに類似したデザインの作品の頒布・展示も禁止いたします。<br>
+<br>
+<br>
+<strong>【頒布・展示物について】</strong><br>
+・パロディ、年齢操作、モブ視点等を含む作品には、あらかじめお品書きや作品ページへ注意書きの記載をお願いします。<br>
+<br>
+・他キャラクターのカップリング要素を含む二次創作を掲載する場合は、必ず含まれるカップリングの明記をお願いします。<br>
+<br>
+・当イベントは佐賀美陣×椚章臣のカップリングオンリーイベントです。<br>
+<br>
+陣・章臣が絡む他カップリング、総攻め・総受け・愛され等の要素が含まれる作品の頒布・展示は禁止いたします。<br>
+<br>
+※陣・章臣が絡む他CP要素を含む作品は原則禁止ですが、陣章がメインであり、<br>かつ陣←モブ女性、幼少期の陣→病院のお姉さん等、公式で明確に描写のある関係性に限り、要素を含んだ二次創作の散布・展示可能といたします。<br>
+<br>
+・成人向けの作品の頒布・展示をされる場合は、成人向けの表記とパスワード等によるゾーニングを必須とし、作品内の黒塗り・白抜きなど十分な修正を行ってください。<br>
+<br>
+<br>
+<strong>【その他】</strong><br>
+・頒布物の転売・複製・盗作・自作発言・無断転載等は固く禁止いたします。<br>
+<br>
+・会場内でのなりきりチャット行為や、他の参加者のご迷惑となる行為はお控えください。<br>
+<br>
+・作者様や作品への誹謗中傷、荒らし行為は禁止いたします。
+<br>このような行為を発見した場合、イベントからの追放措置を取らせていただくことがありますので、予めご了承ください。<br>
+<br>
+・店舗外観やチャット等、不特定多数の目に触れる場所での公序良俗に反する行為はおやめください。<br>
+<br>
+・個人・サークル間で発生したトラブルにつきまして、当Webオンリーでは一切の責任を負いかねます。<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+      </div>
+
+      <div id="qa" class="section">
+        <br>
+        <br>
+         <br>
+        <strong>🌈Q. 同人誌を描いたことが無くても参加できますか？🌈<br>
+        A. 大歓迎です！</strong><br>
+        当オンリーは展示のみも可能ですので、陣章の二次創作
+であれば落書き1枚のみでも参加大歓迎です！<br><br><br>
+<br>
+        <strong>🌈Q. 当日不在でも参加できますか？🌈<br>
+        A. 大歓迎です！</strong><br>
+        当オンリーは当日不在でも参加可能ですので、まだスケジュールが未定の方もお気軽にご参加ください！<br>
+※ご不在の際は先に店舗・展示・頒布等の設定をし、空のサークルにならないようにご協力お願いいたします。<br>
+<br><br>
+<br>
+        <strong>🌈Q. 参加費はかかりますか？🌈<br>
+        A. かかります！</strong><br>ピクリエ:770円 / ピクスク:1000円<br>
+     ※どちらもシステム使用料のみのため、主催者に収益が入ることはありません。
+<br><br>
+<br>
+<br>
+        <strong>🌈Q. 海外から参加できますか？／Can I participate from abroad?🌈<br>
+        A. 可能です！／It's possible!</strong>
+        <br>
+        一般参加の場合は、インターネットの接続環境があり、開催サイトのアカウント登録いただければ参加可能です。
+        <br>
+        サークル参加の場合、上記+参加費の決済手段をお持ちであれば参加可能です。
+         <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+
+      <div id="project" class="section">
+        <br>
+        <br>
+         <br>
+       <strong><a href="https://x.com/jnakonly?s=21" target="_blank">じんあきっす企画運営用Ｘ</a></strong>
+       <br>お問い合わせ用ウエーブボックスあり。
+       <br>フォローいただけると企画情報やイベントの様子がわかります。
+       <br>カウントダウン企画も予定中です。
+       <br>
+        <br>その他イベントページなど随時追加💫
+         <br>
+          <br>
+           <br>
+            <br>
+             <br>
+              <br>
+      </div>
+
+    </div>
+
+    <div class="game-area">
+      <a href="">🎮 準備中…</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function showTab(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>

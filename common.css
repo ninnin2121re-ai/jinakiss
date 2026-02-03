@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    color: hsl(330, 100%, 50%);
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+:root{
+    --primary-color: hsl(359, 75%, 13%);
+    --secondary-color: rgb(255, 146, 201);
+}
+body{
+    color: var(--primary-color);
+    background-color: floralwhite;
+}
+header{
+    background-color: var(--secondary-color);
+    image-size: clamp(28px,6vw,70px)
+}
+main{
+}
+main nav ul{
+    text-align: center;
+    margin-top: 40PX;
+    margin-bottom: 40PX;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 40px;
+}
+}
+section.menu{
+    padding: 10px;
+    text-align: center;
+    font-size: clamp(28px,6vw,50px)
+}
